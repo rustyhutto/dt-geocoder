@@ -15,7 +15,7 @@ var options = {
 
 var app = express();
 var geocoder = NodeGeocoder(options);
-PORT=3000
+PORT = process.argv[2] || process.env.PORT || 3000;
 
 app.get('/', function(req, res){
     res.send("dt-geocode; GET /geocode?params=ADDRESS; GET /reverse_geocode?params=LAT,LONG")
