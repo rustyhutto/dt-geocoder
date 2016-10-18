@@ -17,6 +17,13 @@ var app = express();
 var geocoder = NodeGeocoder(options);
 PORT = process.argv[2] || process.env.PORT || 3000;
 
+// http://enable-cors.org/server_expressjs.html
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.get('/', function(req, res){
     res.send("dt-geocode; GET /geocode?params=ADDRESS; GET /reverse_geocode?params=LAT,LONG")
 })
