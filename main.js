@@ -30,6 +30,24 @@ app.get('/geocode', function(req, res) {
     // res.send('Hello World!');
 });
 
+app.get('/reverse_geocode', function(req, res) {
+    // Using callback
+    // Or using Promise
+    // Or using Promise
+    geocoder.reverse({
+            lat: 45.767,
+            lon: 4.833
+        })
+        .then(function(response) {
+            console.log(response);
+            res.send(response)
+        })
+        .catch(function(err) {
+            console.log(err);
+        });
+    // res.send('Hello World!');
+});
+
 app.listen(3000, function() {
     console.log('Example app listening on port 3000!');
 });
