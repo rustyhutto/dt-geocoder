@@ -15,39 +15,33 @@ var options = {
 
 var app = express();
 var geocoder = NodeGeocoder(options);
+PORT=3000
 
 app.get('/geocode', function(req, res) {
-    // Using callback
-    // Or using Promise
+	// using Promise		
     geocoder.geocode('29 champs elysée paris')
         .then(function(response) {
-            console.log(response);
             res.send(response)
         })
         .catch(function(err) {
             console.log(err);
         });
-    // res.send('Hello World!');
 });
 
 app.get('/reverse_geocode', function(req, res) {
-    // Using callback
-    // Or using Promise
-    // Or using Promise
+    // using Promise
     geocoder.reverse({
             lat: 45.767,
             lon: 4.833
         })
         .then(function(response) {
-            console.log(response);
             res.send(response)
         })
         .catch(function(err) {
             console.log(err);
         });
-    // res.send('Hello World!');
 });
 
-app.listen(3000, function() {
-    console.log('Example app listening on port 3000!');
+app.listen(PORT, function() {
+    console.log("listening on port: " + PORT);
 });
