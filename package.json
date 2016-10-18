@@ -1,14 +1,14 @@
 {
-  "name": "dt-geolocate",
+  "name": "dt-geocoder",
   "version": "1.0.0",
-  "description": "Microservice to reverse geocode",
+  "description": "Microservice geocoder",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "dt-geolocate"
+    "url": "dt-geocoder"
   },
   "author": "",
   "license": "ISC",
