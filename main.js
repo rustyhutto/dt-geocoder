@@ -17,6 +17,10 @@ var app = express();
 var geocoder = NodeGeocoder(options);
 PORT=3000
 
+app.get('/', function(req, res){
+    res.send("dt-geocode; GET /geocode?params=ADDRESS; GET /reverse_geocode?params=LAT,LONG")
+})
+
 app.get('/geocode', function(req, res) {
 	// using Promise		
     geocoder.geocode('29 champs elysée paris')
