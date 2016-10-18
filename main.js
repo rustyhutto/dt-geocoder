@@ -29,13 +29,17 @@ app.get('/geocode', function(req, res) {
 });
 
 app.get('/reverse_geocode', function(req, res) {
+	console.log(req.query)
+	var latLong = req.query['params'].split(",")
+    var lat = latLong[0]
+    var long = latLong[1]
     // using Promise
     geocoder.reverse({
-            lat: 45.767,
-            lon: 4.833
+            lat: lat,
+            lon: long
         })
         .then(function(response) {
-            res.send(response)
+            res.send(response[0].formattedAddress)
         })
         .catch(function(err) {
             console.log(err);
